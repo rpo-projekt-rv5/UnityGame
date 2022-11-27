@@ -38,6 +38,9 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: far far far back
+    uniqueID: 3158947015
+    locked: 0
   - name: Far back background
     uniqueID: 1530357969
     locked: 0
