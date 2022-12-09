@@ -12,8 +12,8 @@ public class PlayerMovement : MonoBehaviour
 
     private float deltaX;
     // se lahko kasneje spremeni, glede na potrebo oziroma ustreznost
-    private const float movementSpeed = 4f;
-    private const float jumpSpeed = 5f;
+    private const float movementSpeed = 8f;
+    private const float jumpSpeed = 6f;
     // dodaj prosim to, da igra preverja, �e je igralec na tleh; �e je, lahko sko�i, �e ne, ne more sko�iti,
     // ker druga�e lahko igralec v nedogled ska�e
     // lahko �e proba� dodat tud double jump, wall slide, pa kako dashanje :D
