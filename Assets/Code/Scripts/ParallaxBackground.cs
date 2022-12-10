@@ -4,33 +4,25 @@ using UnityEngine;
 
 public class ParallaxBackground : MonoBehaviour
 {
-  public Transform[] backgrounds;
-  public float[] parallaxScales;
-  public float smoothing;
-
-  private Transform cam;
-  private Vector3 previousCamPos;
+  private float length;
+  private float start;
+  public GameObject camera;
+  public float effectScore;
 
   // Use this for initialization
   void Start (){
-    cam = Camera.main.transform;
-    previousCamPos = cam.position;
-    parallaxScales = new float[backgrounds.Length];
-
-    for (int i = 0; i < backgrounds.Length; i++) {
-      parallaxScales[i] = backgrounds[i].position.z * -1;
-      Debug.Log(parallaxScales[i]);
-    }
+    start = transform.position.x;
+    length = GetComponent<SpriteRenderer>().bounds.size.x;
   }
 
   // Update is called once per frame
   void FixedUpdate (){
-    for (int i = 0; i < backgrounds.Length; i++) {
-      float parallax = (previousCamPos.x - cam.position.x) * parallaxScales[i];
-      float backgroundTargetPosX = backgrounds[i].position.x + parallax;
-      Vector3 backgroundTargetPos = new Vector3 (backgroundTargetPosX, backgrounds[i].position.y, backgrounds[i].position.z);
-      backgrounds[i].position = Vector3.Lerp (backgrounds[i].position, backgroundTargetPos, smoothing * Time.deltaTime);
-    }
-    previousCamPos = cam.position;
+    float relativeChange = camera.transform.position.x * (1 - effectScore);
+    float distance = camera.transform.position.x * effectScore;
+
+    transform.position = new Vector3(start + distance, transform.position.y, transform.position.z);
+
+    if (relativeChange > start + length) start += length;
+    else if (relativeChange < start + length) start -= length;
   }
 }
