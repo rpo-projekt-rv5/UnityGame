@@ -1,0 +1,18 @@
+// Gal, 25.11.2022
+
+INSTALL CINEMACHINE!
+
+Kamera:
+	size: 4
+	projection: ortographic
+	
+Sprite Atlas:
+	Pixels per unit naj bo na 64
+	
+2D Texture datoteke:
+	Sprite mode mora biti nastavljen na multiple, da se lahko sprite-i ven režejo
+	
+Player:
+	dodal sem zelo osnovno premikanje (po x osi, skok) in animaciji za mirovanje ter tekanje
+	dodal sem flip na x osi
+	BOX COLLIDER: y offset more bit nastavljen na 0, drugače lahko pride do trkov s tilemap-om
