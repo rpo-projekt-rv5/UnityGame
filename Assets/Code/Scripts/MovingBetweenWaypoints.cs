@@ -19,6 +19,8 @@ public class MovingBetweenWaypoints : MonoBehaviour
                 currentIndex = 0;
             }
         }
-        transform.position = Vector2.MoveTowards(transform.position, waypoints[currentIndex].transform.position, Time.deltaTime * speed);
+        transform.position = Vector2.MoveTowards(
+            transform.position, waypoints[currentIndex].transform.position, Time.deltaTime * speed
+        );
     }
 }
