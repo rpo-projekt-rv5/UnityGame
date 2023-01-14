@@ -124,4 +124,14 @@ public class PlayerCombat : MonoBehaviour
         Debug.Log("I AM DEAD");
         currentHealth = maxHealth;
     }
+
+    //take damage when colliding with spikes
+    private void OnTriggerEnter2D(Collider2D x)
+    {
+        if (x.tag == "SpikesInstantKill")
+        {
+            Debug.Log("Taking damage from SpikesInstantKill");
+            TakeDamage(currentHealth);
+        }
+    }
 }
