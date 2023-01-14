@@ -4,13 +4,15 @@ using UnityEngine;
 
 public class PlayerCombat : MonoBehaviour
 {
+    private int maxHealth = 120;
+    private int currentHealth;
+
     [SerializeField]
     private float inputTimer, meleeAttackRadius;
     [SerializeField]
     private int meleeAttackDamage = 20;
     [SerializeField]
     private Transform meleeAttackPosition;
-
     [SerializeField]
     private LayerMask enemyLayers;
 
@@ -26,6 +28,7 @@ public class PlayerCombat : MonoBehaviour
     private void Start()
     {
         animator = GetComponent<Animator>();
+        currentHealth = maxHealth;
     }
 
     private void Update()
@@ -65,7 +68,7 @@ public class PlayerCombat : MonoBehaviour
                 animator.SetBool("isAttacking", true);
             }
         }
-    }    
+    }
 
     private void CheckMeleeAttackHitBox()
     {
@@ -74,7 +77,7 @@ public class PlayerCombat : MonoBehaviour
         foreach (Collider2D enemy in hits)
         {
             Debug.Log("We hit " + enemy.name);
-            enemy.GetComponent<EnemyCombat>().TakeDamage(meleeAttackDamage);
+            enemy.GetComponent<Enemy>().TakeDamage(meleeAttackDamage);
         }
     }
 
@@ -104,5 +107,21 @@ public class PlayerCombat : MonoBehaviour
     public bool IsAttacking()
     {
         return isAttacking;
+    }
+
+    public void TakeDamage(int damage)
+    {
+        currentHealth -= damage;
+        if(currentHealth <= 0)
+        {
+            Debug.Log(currentHealth);
+            Die();
+        }
+    }
+
+    public void Die()
+    {
+        Debug.Log("I AM DEAD");
+        currentHealth = maxHealth;
     }
 }
