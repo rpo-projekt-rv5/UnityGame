@@ -1,0 +1,62 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!78 &1
+TagManager:
+  serializedVersion: 2
+  tags:
+  - SpikesInstantKill
+  - Enemy
+  - Grid
+  - Konec
+  layers:
+  - Default
+  - TransparentFX
+  - Ignore Raycast
+  - Front
+  - Water
+  - UI
+  - Player
+  - Enemy
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  m_SortingLayers:
+  - name: far far far back
+    uniqueID: 3158947015
+    locked: 0
+  - name: Far back background
+    uniqueID: 1530357969
+    locked: 0
+  - name: Background
+    uniqueID: 3380449973
+    locked: 1
+  - name: Default
+    uniqueID: 0
+    locked: 0
+  - name: Ground
+    uniqueID: 2431701621
+    locked: 0
+  - name: Player
+    uniqueID: 2686828807
+    locked: 0
