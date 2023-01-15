@@ -53,7 +53,7 @@ public class Enemy : MonoBehaviour
     private void FixedUpdate()
     {
         // x in y v vektorju sta 2, ker je skeleton za 2x 'scale'-an
-        // èe gleda desno
+        // ï¿½e gleda desno
         if(player.GetX() < enemy.position.x && IsPlayerInSight())
         {
             enemy.transform.localScale = new Vector2(2, 2);
@@ -132,7 +132,7 @@ public class Enemy : MonoBehaviour
 
     private void Knockback()
     {
-        // èe je nasprotnik desno od igralca
+        // ï¿½e je nasprotnik desno od igralca
         if(enemy.position.x > player.GetX())
         {
             player.GetKnockbacked(-knockbackLength, knockbackSpeed);

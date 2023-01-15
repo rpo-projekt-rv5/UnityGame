@@ -149,3 +149,14 @@ public class PlayerCombat : MonoBehaviour
         return isDead;
     }
 }
+
+    //take damage when colliding with spikes
+    private void OnTriggerEnter2D(Collider2D x)
+    {
+        if (x.tag == "SpikesInstantKill")
+        {
+            Debug.Log("Taking damage from SpikesInstantKill");
+            TakeDamage(currentHealth);
+        }
+    }
+}
