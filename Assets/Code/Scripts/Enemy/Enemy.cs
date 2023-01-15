@@ -10,7 +10,7 @@ public class Enemy : MonoBehaviour
     private PlayerMovement player;
     private Rigidbody2D enemy;
     private BoxCollider2D boxCollider;
-    
+
     private const float attackTriggerRadius = 0.8f;
     private const float knockbackLength = 2f;
     private const float knockbackSpeed = 2f;
@@ -33,6 +33,8 @@ public class Enemy : MonoBehaviour
     private bool isAttacking;
     private bool isHurt;
 
+    private int size = 6;
+
     private void Start()
     {
         player = GameObject.Find("Player").GetComponent<PlayerMovement>();
@@ -47,7 +49,7 @@ public class Enemy : MonoBehaviour
 
     private void Update()
     {
-        Attack(); 
+        Attack();
     }
 
     private void FixedUpdate()
@@ -56,11 +58,11 @@ public class Enemy : MonoBehaviour
         // �e gleda desno
         if(player.GetX() < enemy.position.x && IsPlayerInSight())
         {
-            enemy.transform.localScale = new Vector2(2, 2);
+            enemy.transform.localScale = new Vector2(size, size);
         }
         else if(player.GetX() > enemy.position.x && IsPlayerInSight())
         {
-            enemy.transform.localScale = new Vector2(-2, 2);
+            enemy.transform.localScale = new Vector2(-size, size);
         }
         if(!isAttacking && !isHurt)
         {
@@ -122,7 +124,7 @@ public class Enemy : MonoBehaviour
     private void CheckMeleeHitBox()
     {
         Collider2D[] hits = Physics2D.OverlapCircleAll(attackPosition.position, attackRadius, playerLayer);
-        
+
         if(hits.Length > 0)
         {
             playerCombat.TakeDamage(attackDamage);
@@ -176,7 +178,7 @@ public class Enemy : MonoBehaviour
     {
         isHurt = false;
     }
-    
+
     private void DeathAnimation()
     {
         animator.SetTrigger("isDead");
@@ -196,7 +198,7 @@ public class Enemy : MonoBehaviour
     {
         enemy.velocity = new Vector2(knockbackLength, knockbackSpeed);
     }
-        
+
     public float GetKnockbackLength()
     {
         return knockbackLength;
