@@ -12,7 +12,7 @@ public class PlayerCombat : MonoBehaviour
     [SerializeField]
     private int meleeAttackDamage = 20;
     [SerializeField]
-    private Transform meleeAttackPosition;  
+    private Transform meleeAttackPosition;
     [SerializeField]
     private LayerMask enemyLayers;
 
@@ -148,7 +148,6 @@ public class PlayerCombat : MonoBehaviour
     {
         return isDead;
     }
-}
 
     //take damage when colliding with spikes
     private void OnTriggerEnter2D(Collider2D x)

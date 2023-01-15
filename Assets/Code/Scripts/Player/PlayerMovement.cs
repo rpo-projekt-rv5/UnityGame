@@ -13,8 +13,8 @@ public class PlayerMovement : MonoBehaviour
     private float deltaX;
     private bool isFlipped;
     // se lahko kasneje spremeni, glede na potrebo oziroma ustreznost
-    private const float movementSpeed = 4f;
-    private const float jumpSpeed = 4f;
+    private const float movementSpeed = 8f;
+    private const float jumpSpeed = 10f;
     private const float crouchSpeed = 2.5f;
     // dodaj prosim to, da igra preverja, �e je igralec na tleh; �e je, lahko sko�i, �e ne, ne more sko�iti,
     // ker druga�e lahko igralec v nedogled ska�e
@@ -75,16 +75,16 @@ public class PlayerMovement : MonoBehaviour
 
     private void Flip()
     {
-        if(deltaX < 0)
-        {
-            player.transform.localScale = new Vector2(-1, 1);
-            isFlipped = true;
-        }
-        else if(deltaX > 0)
-        {
-            player.transform.localScale = Vector2.one;
-            isFlipped = false;
-        }
+        // if(deltaX < 0)
+        // {
+        //     player.transform.localScale = new Vector2(-1, 1);
+        //     isFlipped = true;
+        // }
+        // else if(deltaX > 0)
+        // {
+        //     player.transform.localScale = Vector2.one;
+        //     isFlipped = false;
+        // }
     }
 
     private void Jump()
@@ -115,7 +115,7 @@ public class PlayerMovement : MonoBehaviour
                 player.velocity = new Vector2(deltaX * crouchSpeed, player.velocity.y);
             }
             else
-            { 
+            {
                 player.velocity = new Vector2(deltaX * movementSpeed, player.velocity.y);
             }
         }
